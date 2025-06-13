@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, Sparkles, Zap, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export const CTA = () => {
@@ -29,35 +29,53 @@ export const CTA = () => {
   };
 
   return (
-    <section id="waitlist" className="py-20 bg-gradient-to-br from-primary/10 via-background to-accent/10">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <Card className="border-border/50 shadow-2xl bg-card/80 backdrop-blur-sm">
-            <CardContent className="p-12">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                  🔓 Early Access
-                </h2>
-                <p className="text-lg text-muted-foreground mb-4">
+    <section id="waitlist" className="py-32 bg-gradient-to-br from-primary/10 via-background to-accent/10 relative overflow-hidden">
+      {/* Enhanced background effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[500px] bg-gradient-conic from-primary/5 via-accent/5 to-primary/5 rounded-full blur-3xl animate-spin-slow opacity-20"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <Card className="border-primary/20 shadow-2xl bg-gradient-to-br from-card/90 to-accent/5 backdrop-blur-lg relative overflow-hidden hover:shadow-3xl transition-all duration-700 hover:scale-105">
+            {/* Animated border */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-lg blur-sm animate-pulse"></div>
+            <div className="absolute inset-[1px] bg-gradient-to-br from-card/95 to-accent/10 rounded-lg"></div>
+            
+            <CardContent className="p-16 relative z-10">
+              <div className="text-center mb-16">
+                {/* Enhanced heading */}
+                <div className="flex justify-center items-center gap-3 mb-8 animate-fade-in">
+                  <Sparkles className="w-10 h-10 text-primary animate-pulse" />
+                  <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient-x">
+                    🔓 Early Access
+                  </h2>
+                  <Zap className="w-10 h-10 text-accent animate-pulse animation-delay-500" />
+                </div>
+                
+                <p className="text-xl md:text-2xl text-muted-foreground mb-6 animate-fade-in animation-delay-300">
                   We're onboarding a small group of sellers first.
                 </p>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-xl md:text-2xl text-muted-foreground animate-fade-in animation-delay-500">
                   If this sounds like your daily struggle, join the waitlist.
                   <br />
-                  We'll show you exactly how it works.
+                  <span className="text-primary font-semibold">We'll show you exactly how it works.</span>
                 </p>
               </div>
               
-              <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-                <div className="flex gap-3 mb-6">
+              {/* Enhanced form */}
+              <form onSubmit={handleSubmit} className="max-w-lg mx-auto mb-12 animate-fade-in animation-delay-700">
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
                   <div className="relative flex-1">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
+                    <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-6 h-6" />
                     <Input
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder="Enter your email address"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="pl-11 h-12 text-lg"
+                      className="pl-14 h-16 text-lg rounded-2xl border-border/50 focus:border-primary/50 bg-background/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/30"
                       required
                     />
                   </div>
@@ -65,27 +83,59 @@ export const CTA = () => {
                     type="submit" 
                     size="lg" 
                     disabled={isSubmitting}
-                    className="h-12 px-6 bg-primary hover:bg-primary/90 text-primary-foreground group"
+                    className="h-16 px-10 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105 text-lg font-semibold"
                   >
-                    {isSubmitting ? "Joining..." : "Join Waitlist"}
-                    <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                    <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="relative flex items-center gap-3">
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                          Joining...
+                        </>
+                      ) : (
+                        <>
+                          Join Waitlist
+                          <ArrowRight className="w-6 h-6 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110" />
+                        </>
+                      )}
+                    </span>
                   </Button>
                 </div>
               </form>
               
-              <div className="text-center">
-                <div className="bg-accent/20 rounded-lg p-6 mb-8">
-                  <h3 className="font-semibold text-lg mb-2">👀 Real Talk</h3>
-                  <p className="text-muted-foreground">
+              {/* Enhanced benefits section */}
+              <div className="text-center animate-fade-in animation-delay-900">
+                <div className="bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 rounded-2xl p-8 mb-10 border border-primary/20 backdrop-blur-sm hover:shadow-xl transition-all duration-500 hover:scale-105">
+                  <div className="flex justify-center items-center gap-3 mb-4">
+                    <CheckCircle className="w-8 h-8 text-primary animate-pulse" />
+                    <h3 className="font-bold text-2xl md:text-3xl">👀 Real Talk</h3>
+                  </div>
+                  <p className="text-lg md:text-xl text-muted-foreground mb-3 leading-relaxed">
                     This isn't chat automation.
                   </p>
-                  <p className="font-semibold text-foreground">
+                  <p className="font-bold text-xl md:text-2xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                     This is your first full-time employee who never sleeps.
                   </p>
                 </div>
                 
-                <p className="text-sm text-muted-foreground">
-                  No spam. Unsubscribe anytime.
+                {/* Trust indicators */}
+                <div className="flex justify-center items-center gap-8 mb-8 text-muted-foreground animate-fade-in animation-delay-1100">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                    <span className="text-sm font-medium">No spam</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full animate-pulse animation-delay-500"></div>
+                    <span className="text-sm font-medium">Free setup</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 bg-purple-500 rounded-full animate-pulse animation-delay-1000"></div>
+                    <span className="text-sm font-medium">Cancel anytime</span>
+                  </div>
+                </div>
+                
+                <p className="text-sm text-muted-foreground opacity-80">
+                  Join 500+ businesses on the waitlist. Unsubscribe anytime.
                 </p>
               </div>
             </CardContent>
