@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Sparkles } from "lucide-react";
 
@@ -22,7 +21,7 @@ export const Hero = () => {
           {/* Floating badge with enhanced animation */}
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 rounded-full px-6 py-3 mb-12 text-sm font-medium text-primary backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-lg hover:border-primary/40 group">
             <Zap className="w-4 h-4 animate-pulse" />
-            <span>WhatsApp AI Assistant</span>
+            <span>InstaSelly</span>
             <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform duration-300" />
           </div>
           

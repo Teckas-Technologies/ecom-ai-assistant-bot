@@ -1,4 +1,3 @@
-
 export const Footer = () => {
   return (
     <footer className="py-16 bg-gradient-to-t from-accent/10 to-background border-t border-border/50 relative overflow-hidden">
@@ -12,13 +11,14 @@ export const Footer = () => {
         <div className="text-center">
           <div className="mb-8 animate-fade-in">
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              WhatsApp AI Assistant
+              InstaSelly
             </h3>
             <p className="text-lg text-muted-foreground">
               Your AI-powered customer service revolution
             </p>
           </div>
           
+          {/* status indicators */}
           <div className="flex justify-center items-center gap-8 mb-8 text-muted-foreground animate-fade-in animation-delay-300">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
@@ -35,7 +35,7 @@ export const Footer = () => {
           </div>
           
           <p className="text-muted-foreground animate-fade-in animation-delay-500">
-            © 2024 WhatsApp AI Assistant. Built for growing businesses.
+            © 2024 InstaSelly. Built for growing businesses.
           </p>
         </div>
       </div>
