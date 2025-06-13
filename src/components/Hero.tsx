@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Sparkles } from "lucide-react";
 
@@ -28,20 +29,21 @@ export const Hero = () => {
           {/* Enhanced heading with staggered animation */}
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-8 leading-none">
             <span className="block animate-fade-in bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
-              Tired of replying to the same
+              Drowning in
             </span>
             <span className="block animate-fade-in animation-delay-300 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient-x">
-              WhatsApp messages
+              WhatsApp orders
             </span>
             <span className="block animate-fade-in animation-delay-600 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
-              every day?
+              all day?
             </span>
           </h1>
           
           {/* Enhanced subtitle */}
           <p className="text-2xl md:text-3xl lg:text-4xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed animate-fade-in animation-delay-900 font-light">
-            Let an AI assistant handle it while you{" "}
-            <span className="text-primary font-medium">grow your business.</span>
+            Stop manually taking orders.{" "}
+            <span className="text-primary font-medium">Let AI handle it</span>{" "}
+            while you focus on growing your business.
           </p>
           
           {/* Enhanced CTA section */}
