@@ -1,8 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Sparkles } from "lucide-react";
+import WaitlistForm from "./WaitlistForm";
+import { useState } from "react";
 
 export const Hero = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const scrollToCTA = () => {
     document.getElementById('waitlist')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -50,7 +53,7 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in animation-delay-1200">
             <Button 
               size="lg" 
-              onClick={scrollToCTA}
+              onClick={() => setIsDialogOpen(true)}
               className="text-xl px-12 py-8 bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105"
             >
               <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
@@ -70,6 +73,7 @@ export const Hero = () => {
             </div>
           </div>
 
+          <WaitlistForm isOpen={isDialogOpen} setIsOpen={setIsDialogOpen} />
           {/* Social proof indicators */}
           <div className="mt-16 animate-fade-in animation-delay-1500">
             <div className="flex justify-center items-center gap-8 text-muted-foreground">
