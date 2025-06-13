@@ -5,10 +5,12 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Mail, Sparkles, Zap, CheckCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import WaitlistForm from "./WaitlistForm";
 
 export const CTA = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -66,42 +68,22 @@ export const CTA = () => {
               </div>
               
               {/* Enhanced form */}
-              <form onSubmit={handleSubmit} className="max-w-lg mx-auto mb-12 animate-fade-in animation-delay-700">
-                <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <div className="relative flex-1">
-                    <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-6 h-6" />
-                    <Input
-                      type="email"
-                      placeholder="Enter your email address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="pl-14 h-16 text-lg rounded-2xl border-border/50 focus:border-primary/50 bg-background/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/30"
-                      required
-                    />
-                  </div>
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    disabled={isSubmitting}
-                    className="h-16 px-10 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105 text-lg font-semibold"
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                    <span className="relative flex items-center gap-3">
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-                          Joining...
-                        </>
-                      ) : (
-                        <>
-                          Join Waitlist
-                          <ArrowRight className="w-6 h-6 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110" />
-                        </>
-                      )}
-                    </span>
-                  </Button>
-                </div>
-              </form>
+          
+              <div className="flex justify-center mb-12">
+              <Button 
+                type="submit" 
+                size="lg" 
+                onClick={() => setIsDialogOpen(true)}
+                className="h-16 px-10 bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-primary-foreground group relative overflow-hidden rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105 text-lg font-semibold"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="relative flex items-center gap-3">
+                  Join Waitlist
+                  <ArrowRight className="w-6 h-6 transition-all duration-300 group-hover:translate-x-2 group-hover:scale-110" />
+                </span>
+              </Button>
+            </div>
+            <WaitlistForm isOpen={isDialogOpen} setIsOpen={setIsDialogOpen} />
               
               {/* Enhanced benefits section */}
               <div className="text-center animate-fade-in animation-delay-900">
