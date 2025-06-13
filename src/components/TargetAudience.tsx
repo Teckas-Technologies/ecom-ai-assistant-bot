@@ -68,7 +68,7 @@ export const TargetAudience = () => {
           
           <div className="bg-gradient-to-r from-card/80 to-accent/10 rounded-3xl p-12 border border-border/50 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 animate-fade-in animation-delay-900 hover:scale-105">
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-              If you're spending <span className="font-bold text-3xl bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">3–4 hours a day</span> replying to messages manually — we're here to take that off your plate.
+              If you're spending <span className="font-bold text-3xl bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_100%] animate-gradient-x">3–4 hours a day</span> replying to messages manually — we're here to take that off your plate.
             </p>
           </div>
         </div>
